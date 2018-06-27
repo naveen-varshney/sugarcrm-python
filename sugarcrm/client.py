@@ -196,8 +196,8 @@ class Client(object):
             A dict.
 
         """
-        _dict = [{'name': k.lower(), 'value': v} for k, v in name_value_lists.items()]
-        data = [self.session_id, module_name, _dict]
+        
+        data = [self.session_id, module_name, name_value_list]
         return self._post('set_entries', data)
 
     def set_entry(self, module_name, name_value_list):
@@ -211,8 +211,7 @@ class Client(object):
             A dict.
 
         """
-        _dict = [{'name': k.lower(), 'value': v} for k, v in name_value_list.items()]
-        data = [self.session_id, module_name, _dict]
+        data = [self.session_id, module_name, name_value_list]
         return self._post('set_entry', data)
 
     def get_document_revision(self):
